@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create CV</title>
+    <link rel="stylesheet" href="{% static 'css/userpage-styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="user-info">
+            <img src="{% static 'images/user-image.png' %}" alt="UserImage" class="user-avatar">
+            <nav class="user-menu">
+                <ul>
+                    <li><a href="{% url 'homepage' %}" id="logout">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <div class="cv-container">
+            <h2>Create Your CV</h2>
+            <form id="cv-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+                
+                <label for="education">Education:</label>
+                <textarea id="education" name="education" required></textarea>
+                
+                <label for="experience">Experience:</label>
+                <textarea id="experience" name="experience" required></textarea>
+                
+            </form>
+            <div id="cv-templates">
+                <h3>Choose Template:</h3>
+                <div class="template-options">
+                    <label>
+                        <input type="radio" name="template" value="template1" checked>
+                        Template 1
+                        <img src="{% static 'images/user-image.png' %}" alt="Template 1 Preview" class="user-avatar">
+                    </label>
+                    <label>
+                        <input type="radio" name="template" value="template2">
+                        Template 2
+                        <img src="{% static 'images/user-image.png' %}" alt="Template 2 Preview" class="user-avatar">
+                    </label>
+                    <button type="button" id="generate-cv" class="generate-button">Generate CV</button>
+
+                </div>
+            </div>
+            <div id="cv-template" class="hidden">
+                <!-- Template will be generated here -->
+                <h3>Generated CV Preview</h3>
+                <div id="cv-preview">
+                    <!-- Generated content will go here -->
+                </div>
+            </div>
+            <div id="cv-message" class="hidden"></div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/userpage-script.js' %}"></script>
+</body>
+</html>
